@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>رزومه حسین مرادی</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        font-family: "Vazirmatn", "DejaVu Sans", "FreeSerif", sans-serif;
+        font-size: 9pt;
+        line-height: 1.55;
+        color: #1a1a2e;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 12mm 15mm 10mm 15mm;
+        background: #ffffff;
+        position: relative;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        margin-bottom: 3mm;
+        padding-bottom: 4mm;
+        border-bottom: 2.5px solid #2563eb;
+      }
+
+      .header h1 {
+        font-size: 20pt;
+        font-weight: 800;
+        color: #1e293b;
+        margin-bottom: 2mm;
+        letter-spacing: -0.3px;
+      }
+
+      .header .title {
+        font-size: 11pt;
+        font-weight: 500;
+        color: #2563eb;
+        margin-bottom: 3mm;
+      }
+
+      .header .contact-info {
+        font-size: 8.5pt;
+        color: #64748b;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3mm 6mm;
+      }
+
+      .header .contact-info span {
+        white-space: nowrap;
+      }
+
+      /* Section */
+      .section {
+        margin-bottom: 3.5mm;
+      }
+
+      .section-title {
+        font-size: 11pt;
+        font-weight: 700;
+        color: #2563eb;
+        border-bottom: 1.5px solid #e2e8f0;
+        padding-bottom: 1mm;
+        margin-bottom: 2mm;
+        display: flex;
+        align-items: center;
+        gap: 2mm;
+      }
+
+      .section-title::before {
+        content: "";
+        display: inline-block;
+        width: 3mm;
+        height: 3mm;
+        background: #2563eb;
+        border-radius: 1px;
+      }
+
+      /* Summary */
+      .summary {
+        font-size: 9pt;
+        line-height: 1.6;
+        color: #334155;
+        text-align: justify;
+        margin-bottom: 3mm;
+      }
+
+      /* Experience Entry */
+      .exp-entry {
+        margin-bottom: 3mm;
+      }
+
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 1mm;
+        flex-wrap: wrap;
+        gap: 1mm;
+      }
+
+      .exp-title {
+        font-size: 10pt;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      .exp-company {
+        font-size: 9pt;
+        font-weight: 600;
+        color: #475569;
+      }
+
+      .exp-meta {
+        font-size: 8.5pt;
+        color: #94a3b8;
+        white-space: nowrap;
+      }
+
+      .exp-bullets {
+        list-style: none;
+        padding: 0;
+        margin: 1.5mm 0 0 4mm;
+      }
+
+      .exp-bullets li {
+        font-size: 9pt;
+        line-height: 1.6;
+        color: #334155;
+        position: relative;
+        padding-right: 0;
+        margin-bottom: 0.5mm;
+      }
+
+      .exp-bullets li::before {
+        content: "\25CF";
+        color: #2563eb;
+        font-size: 5pt;
+        margin-left: 2mm;
+        vertical-align: middle;
+      }
+
+      /* Skills Grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 2mm 8mm;
+        margin-bottom: 2mm;
+      }
+
+      .skill-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1mm 0;
+        border-bottom: 1px dotted #e2e8f0;
+        font-size: 9pt;
+      }
+
+      .skill-name {
+        font-weight: 500;
+        color: #334155;
+      }
+
+      .skill-stars {
+        color: #2563eb;
+        font-size: 8pt;
+        letter-spacing: 0.5px;
+        direction: ltr;
+      }
+
+      .skill-stars .empty {
+        color: #cbd5e1;
+      }
+
+      /* Project Card */
+      .project-entry {
+        margin-bottom: 3.5mm;
+        padding: 2mm;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        background: #f8fafc;
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 1.5mm;
+        flex-wrap: wrap;
+        gap: 1mm;
+      }
+
+      .project-title {
+        font-size: 10pt;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      .project-role {
+        font-size: 8.5pt;
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      .project-desc {
+        font-size: 9pt;
+        line-height: 1.55;
+        color: #475569;
+        margin-bottom: 1.5mm;
+      }
+
+      .project-techs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1mm 2mm;
+      }
+
+      .tech-tag {
+        font-size: 7.5pt;
+        padding: 0.5mm 2mm;
+        background: #dbeafe;
+        color: #1e40af;
+        border-radius: 3px;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .n8n-badge {
+        display: inline-block;
+        font-size: 7.5pt;
+        padding: 0.3mm 2mm;
+        background: #ea580c;
+        color: #ffffff;
+        border-radius: 3px;
+        font-weight: 700;
+        margin-left: 2mm;
+        vertical-align: middle;
+        letter-spacing: 0.3px;
+      }
+
+      /* Education */
+      .edu-entry {
+        margin-bottom: 1.5mm;
+      }
+
+      .edu-title {
+        font-size: 10pt;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      .edu-meta {
+        font-size: 9pt;
+        color: #64748b;
+        margin-bottom: 0.5mm;
+      }
+
+      /* Certifications */
+      .cert-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 1mm 0;
+        border-bottom: 1px solid #f1f5f9;
+        font-size: 9pt;
+        flex-wrap: wrap;
+        gap: 1mm;
+      }
+
+      .cert-name {
+        font-weight: 500;
+        color: #334155;
+      }
+
+      .cert-source {
+        color: #94a3b8;
+        font-size: 8pt;
+      }
+
+      .cert-date {
+        color: #94a3b8;
+        font-size: 8pt;
+      }
+
+      /* Links */
+      .links-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2mm 5mm;
+        font-size: 9pt;
+      }
+
+      .links-grid a {
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      /* Honor */
+      .honor-item {
+        margin-bottom: 1.5mm;
+      }
+
+      .honor-title {
+        font-size: 9pt;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.5mm;
+      }
+
+      .honor-desc {
+        font-size: 9pt;
+        color: #475569;
+        line-height: 1.55;
+      }
+
+      /* Languages */
+      .lang-grid {
+        display: flex;
+        gap: 8mm;
+        font-size: 9pt;
+      }
+
+      .lang-item {
+        display: flex;
+        align-items: center;
+        gap: 1.5mm;
+      }
+
+      .lang-name {
+        font-weight: 600;
+        color: #334155;
+      }
+
+      /* Features list */
+      .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 1mm 0 0 4mm;
+      }
+
+      .features-list li {
+        font-size: 9pt;
+        line-height: 1.55;
+        color: #475569;
+        position: relative;
+        margin-bottom: 0.5mm;
+      }
+
+      .features-list li::before {
+        content: "\2713";
+        color: #2563eb;
+        font-weight: 700;
+        margin-left: 2mm;
+        font-size: 8pt;
+      }
+
+      /* Page break */
+      .page-break {
+        page-break-before: always;
+      }
+
+      /* Skill row no border */
+      .skill-noborder {
+        border-bottom: none !important;
+      }
+
+      /* Screen adapt */
+      @media screen {
+        html,
+        body {
+          background: #f1f5f9;
+        }
+        .page {
+          margin: 10px auto;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PAGE 1 -->
+    <div class="page">
+      <div class="header">
+        <h1>حسین مرادی</h1>
+        <div class="title">Full-Stack Software Engineer</div>
+        <div class="contact-info">
+          <span>moradih7379@gmail.com</span>
+          <span>|</span>
+          <span>989025197379+</span>
+          <span>|</span>
+          <span>شیراز</span>
+          <span>|</span>
+          <span>تاریخ تولد: Aug 2002</span>
+          <span>|</span>
+          <span>کارشناسی مهندسی کامپیوتر</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">درباره من</div>
+        <div class="summary">
+          توسعه‌دهنده فول‌استک با تجربه در طراحی و توسعه نرم‌افزارهای تحت وب، از
+          سامانه‌های سازمانی تا محصولات مبتنی بر هوش مصنوعی. در توسعه فرانت‌اند
+          و بک‌اند با JavaScript، TypeScript و .NET، طراحی APIهای RESTful و
+          پایگاه‌داده تجربه دارم و به ساخت سیستم‌های مقیاس‌پذیر و خودکارسازی
+          فرآیندها با n8n و AI علاقه‌مندم.
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">تجربیات کاری</div>
+
+        <div class="exp-entry">
+          <div class="exp-header">
+            <div>
+              <span class="exp-title">توسعه‌دهنده فول‌استک</span>
+              <span class="exp-company"> - شرکت خودروسازی کرمان موتور</span>
+            </div>
+            <span class="exp-meta">اردیبهشت ۱۴۰۳ - تاکنون</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>
+              توسعه و نگهداری ماژول‌های سامانه MIS سازمان با استفاده از C# و
+              ASP.NET Core.
+            </li>
+            <li>
+              طراحی و توسعه APIهای RESTful برای یکپارچه‌سازی سرویس‌ها و پشتیبانی
+              از چندین سامانه داخلی.
+            </li>
+            <li>
+              مشارکت در توسعه رابط کاربری با React و Tailwind CSS و پیاده‌سازی
+              قابلیت‌های جدید.
+            </li>
+            <li>
+              بهبود فرآیند Build و Deployment با استفاده از TFS Server و مشارکت
+              در استقرار نسخه‌های جدید.
+            </li>
+            <li>
+              انجام Code Review، رفع باگ و نوشتن Unit Test برای حفظ کیفیت و
+              پایداری کد.
+            </li>
+            <li>
+              توسعه اپلیکیشن جامع کارکنان به همراه پنل مدیریتی تحت وب شامل ماژول
+              های منابع انسانی، روابط عمومی، HSE، جمعداری و ...
+            </li>
+            <li>
+              ایجاد داشبورد های مدیریتی و گزارش گیری برای اپلیکیشن جامع کارکنان
+              و سیستم MIS
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">مهارت‌ها</div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <span class="skill-name">JavaScript</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">TypeScript</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">React.js</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Node.js</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Next.js</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">React Native</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">#C</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">ASP.NET</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">SQL Server</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">PostgreSQL</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">MongoDB</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Git</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">HTML & HTML5</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">CSS & CSS3</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Theme & System Design</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Docker</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">CI/CD</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name"><b>n8n</b></span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name"><b>AI Agent</b></span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name"><b>AI Automation</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">پروژه ها</div>
+
+        <div class="project-entry">
+          <div class="project-header">
+            <div>
+              <span class="n8n-badge">React Native</span>
+              <span class="project-title">اپلیکیشن جامع کرمان موتور</span>
+            </div>
+            <span class="project-role">توسعه‌دهنده</span>
+          </div>
+          <div class="project-desc">
+            اپلیکیشن جامع کارکنان شرکت کرمان موتور شامل ماژول‌های منابع انسانی،
+            روابط عمومی، HSE، جمعداری و ... با قابلیت گزارش‌گیری و داشبوردهای
+            مدیریتی. این اپلیکیشن با استفاده از React Native توسعه یافته و با
+            پنل مدیریتی تحت وب یکپارچه شده است. دارای ماژول سوشیال مدیا داخل
+            سازمانی به همراه چت بات هوشمند و سیستم اطلاع رسانی های سازمانی.
+          </div>
+          <div class="project-techs">
+            <span class="tech-tag">React Native Expo</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Zustand</span>
+            <span class="tech-tag">Nativewind</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">Django</span>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-header">
+            <div>
+              <span class="n8n-badge">ASP.NET</span>
+              <span class="project-title">سیستم مدیریت یکپارچه اطلاعات</span>
+            </div>
+            <span class="project-role">توسعه‌دهنده</span>
+          </div>
+          <div class="project-desc">
+            سامانه مدیریت یکپارچه اطلاعات (MIS) برای شرکت کرمان موتور و شرکت های
+            زیر مجموعه. شامل نرم افزار های ثبت اطلاعات، گزارش گیری و داشبورد های
+            مدیریتی برای تمام واحد های کیفیت، تولید، لجستیک و پشتیبانی.
+          </div>
+          <div class="project-techs">
+            <span class="tech-tag">ASP.NET Core</span>
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">SQL Server</span>
+            <span class="tech-tag">Entity Framework</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page page-break">
+      <div class="section">
+        <div class="section-title">پروژه ها</div>
+
+        <div class="project-entry">
+          <div class="project-header">
+            <div>
+              <span class="n8n-badge">n8n</span>
+              <span class="project-title">منشی شخصی هوشمند</span>
+            </div>
+            <span class="project-role">توسعه‌دهنده</span>
+          </div>
+          <div class="project-desc">
+            دستیار شخصی مبتنی بر n8n که از طریق تلگرام وظایفی مانند مدیریت
+            ایمیل، تقویم، یادداشت‌ها، فایل‌ها و حافظه بلندمدت را انجام می‌دهد.
+            این سیستم با استفاده از OpenRouter پردازش متن، تصویر و صوت را انجام
+            می‌دهد و برای عملیات حساس از کاربر تأیید دریافت می‌کند.
+          </div>
+          <div class="project-techs">
+            <span class="tech-tag">n8n</span>
+            <span class="tech-tag">LLM</span>
+            <span class="tech-tag">Telegram Bot</span>
+            <span class="tech-tag">AI Workflows</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-header">
+            <div>
+              <span class="n8n-badge">n8n & Next.js</span>
+              <span class="project-title">ایجنت هوشمند پرده فروشی</span>
+            </div>
+            <span class="project-role">توسعه‌دهنده</span>
+          </div>
+          <div class="project-desc">
+            ایجنت هوشمند فروش پرده که با دریافت تصویر اتاق مشتری و انتخاب پرده
+            از کاتالوگ فروشگاه، پیش‌نمایش واقع‌گرایانه‌ای از نصب پرده تولید
+            می‌کند. این سیستم با استفاده از Workflowهای n8n و مدل‌های هوش
+            مصنوعی، ساختار اتاق، نور و پرسپکتیو تصویر را حفظ می‌کند. در این
+            پروژه مفاهیم Prompt Engineering & Context Engineering & Harnees
+            Engineering با دقت به کار گرفته شده جهت افزایش کیفیت پرامپت تولید
+            شده و خروجی نهایی. پنل مخصوص صاحب مغازه تحت وب به وسیله Next.js
+            توسعه داده شده است.
+          </div>
+          <div class="project-techs">
+            <span class="tech-tag">n8n</span>
+            <span class="tech-tag">AI</span>
+            <span class="tech-tag">LLM Integration</span>
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">NextAuth</span>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-header">
+            <div>
+              <span class="n8n-badge">n8n</span>
+              <span class="project-title">ربات ممبرگیر و فروش دوره</span>
+            </div>
+            <span class="project-role">توسعه‌دهنده</span>
+          </div>
+          <div class="project-desc">
+            ربات تلگرام برای مدیریت و فروش دوره‌های آموزشی. این ربات با استفاده
+            از n8n Workflow ها فرآیند ثبت‌نام، پرداخت و دسترسی به دوره‌ها را
+            مدیریت می‌کند و امکان ارسال پیام‌های خودکار و اطلاع‌رسانی به کاربران
+            را فراهم می‌سازد. عضو گیری، درامد و خرید دوره های آموزشی. پیاده سازی
+            سیستم تایید خودکار فاکتور واریزی بعد از کارت به کارت برای شارژ ولت.
+          </div>
+          <div class="project-techs">
+            <span class="tech-tag">n8n</span>
+            <span class="tech-tag">Telegram API</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Automation</span>
+            <span class="tech-tag">PostgreSQL</span>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-header">
+            <div>
+              <span class="n8n-badge">n8n</span>
+              <span class="project-title">ربات ممبرگیر و دانلودر مدیا</span>
+            </div>
+            <span class="project-role">توسعه‌دهنده</span>
+          </div>
+          <div class="project-desc">
+            ربات تلگرام مبتنی بر n8n برای توزیع ویدیو از طریق Deep Link که
+            دسترسی کاربران را بر اساس عضویت در کانال‌های تعیین‌شده کنترل می‌کند.
+            این پروژه شامل پنل مدیریت، مدیریت کانال‌ها، ثبت لاگ دانلودها و
+            مانیتورینگ فعالیت کاربران است.
+          </div>
+          <div class="project-techs">
+            <span class="tech-tag">n8n</span>
+            <span class="tech-tag">Telegram API</span>
+            <span class="tech-tag">Automation</span>
+            <span class="tech-tag">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page page-break">
+      <div class="section">
+        <div class="section-title">پروژه‌ها</div>
+
+        <div class="project-entry">
+          <div class="project-header">
+            <div><span class="project-title">Tarkhineh</span></div>
+            <span class="project-role">فریلنسر</span>
+          </div>
+          <div class="project-desc">
+            پروژه‌ای کامل برای مدیریت رستوران شامل سفارش‌گیری آنلاین، مدیریت منو
+            و فاکتورها. رابط کاربری کاملاً ریسپانسیو و دسترسی‌پذیر با طراحی
+            مدرن.
+          </div>
+          <ul class="features-list">
+            <li>
+              طراحی و توسعه فرانت‌اند با React.js و طراحی سیستم و ساختار قالب‌ها
+              با Tailwind CSS.
+            </li>
+            <li>
+              طراحی سیستم‌های سفارش‌گیری و مدیریت منو و فاکتورها با معماری
+              ماژولار.
+            </li>
+            <li>ادغام با API های پرداخت و مدیریت سفارشات.</li>
+            <li>
+              تطبیق کامل با استانداردهای دسترسی‌پذیری (Accessibility) با استفاده
+              از تدوین‌نامه‌های WAI-ARIA.
+            </li>
+          </ul>
+          <div class="project-techs" style="margin-top: 2mm">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">Redux Toolkit</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">WAI-ARIA</span>
+          </div>
+          <div
+            style="
+              font-size: 8pt;
+              color: #94a3b8;
+              margin-top: 1.5mm;
+              direction: ltr;
+              text-align: left;
+            "
+          >
+            https://tarkhineh-food.vercel.app
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-header">
+            <div><span class="project-title">Osahan</span></div>
+            <span class="project-role">فریلنسر</span>
+          </div>
+          <div class="project-desc">
+            پروژه‌ای کامل شامل فرانت‌اند و بک‌اند برای مدیریت رستوران‌ها و
+            سفارش‌گیری آنلاین. رابط کاربری اختصاصی با قابلیت سفارشی‌سازی بالا.
+          </div>
+          <ul class="features-list">
+            <li>
+              توسعه فرانت‌اند و سیستم‌های سفارش‌گیری و مدیریت منو و فاکتورها با
+              معماری ماژولار.
+            </li>
+            <li>
+              طراحی و پیاده‌سازی بک‌اند و ادغام با API های مدیریت سفارشات.
+            </li>
+            <li>
+              تطبیق کامل با استانداردهای دسترسی‌پذیری (Accessibility) با استفاده
+              از تدوین‌نامه‌های WAI-ARIA.
+            </li>
+            <li>تطویع سیستم‌های بک‌اند و فرانت‌اند برای استفاده آسان.</li>
+          </ul>
+          <div class="project-techs" style="margin-top: 2mm">
+            <span class="tech-tag">ASP.NET MVC</span>
+            <span class="tech-tag">HTML & CSS</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">WAI-ARIA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">تحصیلات</div>
+        <div class="edu-entry">
+          <div class="edu-title">
+            Bachelor's degree - Computer Engineering (IT)
+          </div>
+          <div class="edu-meta">
+            BAM Higher Education Complex | Oct 2021 - Oct 2025
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">زبان‌ها</div>
+        <div class="lang-grid">
+          <div class="lang-item">
+            <span class="lang-name">فارسی:</span>
+            <span>&#9733;&#9733;&#9733;&#9733;&#9733; زبان مادری</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">انگلیسی:</span>
+            <span
+              >&#9733;&#9733;<span class="empty">&#9733;&#9733;&#9733;</span>
+              متوسط</span
+            >
+          </div>
+        </div>
+        <div style="margin-top: 2mm">
+          <div class="skill-item skill-noborder">
+            <span class="skill-name">نرم‌افزارهای کاربردی</span>
+            <span class="skill-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <div class="skill-item skill-noborder">
+            <span class="skill-name">کار تیمی</span>
+            <span class="skill-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page page-break">
+      <div class="section">
+        <div class="section-title">دوره‌ها و گواهینامه‌ها</div>
+
+        <div class="cert-item">
+          <span class="cert-name">Modern React with Redux</span>
+          <span class="cert-source">Udemy</span>
+          <span class="cert-date">Apr 2022 - Jul 2022</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name"
+            >JavaScript Algorithms and Data Structures Certification</span
+          >
+          <span class="cert-source">freecodecamp</span>
+          <span class="cert-date">Oct 2021 - Nov 2021</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">Responsive Web Design Certification</span>
+          <span class="cert-source">freecodecamp</span>
+          <span class="cert-date">Aug 2021 - Sep 2021</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name"
+            >The Complete 2022 Web Development Bootcamp</span
+          >
+          <span class="cert-source">Appbrewery - Udemy</span>
+          <span class="cert-date">Feb 2021 - May 2021</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">آموزش سی‌شارپ از مقدماتی تا پیشرفته</span>
+          <span class="cert-source">toplearn</span>
+          <span class="cert-date">بهمن ۱۴۰۲</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">آموزش سی‌شارپ پیشرفته</span>
+          <span class="cert-source">toplearn</span>
+          <span class="cert-date">اسفند ۱۴۰۲</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">آموزش داکر (Docker)</span>
+          <span class="cert-source">toplearn</span>
+          <span class="cert-date">اسفند ۱۴۰۲</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name"
+            >آموزش Asp.Net MVC به همراه پروژه‌های عملی</span
+          >
+          <span class="cert-source">toplearn</span>
+          <span class="cert-date">اسفند ۱۴۰۲</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">آموزش نود جی‌اس پیشرفته</span>
+          <span class="cert-source">quera.ir</span>
+          <span class="cert-date">اردیبهشت ۱۴۰۳</span>
+        </div>
+        <div class="cert-item">
+          <span class="cert-name">Django</span>
+          <span class="cert-source">toplearn</span>
+          <span class="cert-date">فروردین ۱۴۰۴</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">شبکه‌های اجتماعی</div>
+        <div class="links-grid">
+          <a href="https://hosseinmoradi.ir" target="_blank">وب‌سایت شخصی</a>
+          <a href="https://t.me/M_hosein7" target="_blank">Telegram</a>
+          <a href="https://github.com/dev-hosein-moradi" target="_blank"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/hosein-moradi-4a3251232/"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a
+            href="https://jobvision.ir/cv/40543-UZ-hoseinmoradi"
+            target="_blank"
+            >jobvision</a
+          >
+          <a href="https://jobinja.ir/user/UZ-hoseinmoradi" target="_blank"
+            >jobinja</a
+          >
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">افتخارات و فعالیت‌ها</div>
+
+        <div class="honor-item">
+          <div class="honor-title">تست نرم‌افزار در منابع انسانی</div>
+          <div class="honor-desc">
+            حضور در مرحله تست نرم‌افزارهای منابع انسانی در برترین شرکت‌های کشور
+            جهت سنجش مهارت‌ها.
+          </div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-title">توسعه و نگهداری اتوماسیون با N8N</div>
+          <div class="honor-desc">
+            راه‌اندازی و نگهداری اتوماسیون‌های سازمانی با استفاده از N8N در واحد
+            منابع انسانی شرکت کرمان موتور. شامل پیاده‌سازی Flow های خودکار برای
+            فرآیندهای اداری منجر به ثبت قلم اتوماسیون‌ها در شماره پروژه‌های جدید
+            شد.
+          </div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-title">پیاده‌سازی استانداردهای کدنویسی تمیز</div>
+          <div class="honor-desc">
+            جستجو و پیاده‌سازی استانداردهای کدنویسی در بخش‌های (تست، لینت، DRY،
+            SOLID، Clean Code، Design Pattern، BEST PRACTICE، معماری کد،
+            شورت‌کیزهای جدید و بک‌اند منجر). باینری‌های چنجر با هدف بهبود کیفیت
+            کد در سطح سازمان.
+          </div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-title">مربی فرانت‌اند</div>
+          <div class="honor-desc">
+            همکاری با شرکت خودروسازی کرمان موتور برای آموزش و راهنمایی
+            فرانت‌اند، بدون نیاز به دوره‌های آموزشی خارجی.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
